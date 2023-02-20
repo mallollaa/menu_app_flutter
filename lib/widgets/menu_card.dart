@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:menu_app/models/menu.dart';
 
 // we extract the Widget
-class MenuCard extends StatelessWidget {
+class MenuCard extends StatefulWidget {
+  //we make it stateful so the page can be dinamic
   Menu menu; // we are calling our models
   MenuCard({
     Key? key,
@@ -11,6 +13,12 @@ class MenuCard extends StatelessWidget {
     //here we gonna pass our model requireds
   }) : super(key: key);
 
+  @override
+  State<MenuCard> createState() => _MenuCardState();
+}
+
+class _MenuCardState extends State<MenuCard> {
+  bool isDetails = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,15 +34,21 @@ class MenuCard extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    menu.title,
+                    widget.menu.title,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
+                  ElevatedButton(
+                      onPressed: () {
+                        isDetails = !isDetails;
+                        context.push("/recipe");
+                      },
+                      child: Text("Detalis")),
                 ],
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  menu.imageURL,
+                  widget.menu.imageURL,
                   width: 150,
                   height: 150,
                 ),

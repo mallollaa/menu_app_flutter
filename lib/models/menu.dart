@@ -16,7 +16,6 @@ class Menu {
 //here we will use our class to create the list
     Menu(title: "Pasta", imageURL: "assest/images/pasta.jpg"),
     Menu(title: "Burger", imageURL: "assest/images/burger.jpg"),
-    Menu(title: "Suchi", imageURL: "assest/images/pasta.jpg"),
     Menu(title: "Pizza", imageURL: "assest/images/pizza.jpg"),
     Menu(title: "Frize", imageURL: "assest/images/frise.jpg"),
     Menu(title: "Suchi", imageURL: "assest/images/sushi.jpg"),

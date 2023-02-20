@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:menu_app/models/menu.dart';
 import 'package:menu_app/widgets/menu_card.dart';
 
@@ -18,9 +19,12 @@ class MyHome extends StatelessWidget {
         child: Center(
           child: ListView.builder(
             itemCount: Menu.menuItem.length,
-            itemBuilder: (context, index) => MenuCard(
-              //first we pass the Widgets then the class of or models
-              menu: Menu.menuItem[index],
+            itemBuilder: (context, index) => InkWell(
+              onTap: () => context.push("/recipe/$index"),
+              child: MenuCard(
+                //first we pass the Widgets then the class of our models
+                menu: Menu.menuItem[index],
+              ),
             ),
           ),
         ),
