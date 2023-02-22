@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// define the router confg
 final _router = GoRouter(
   initialLocation:
       "/home", //we're defining the defult page otherwise the defult should be "/"
